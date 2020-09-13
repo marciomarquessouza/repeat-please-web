@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import LogoHeader from '../../assets/svg/LogoHeader';
 import { HeaderContainer, ButtonContainer } from './styles';
-import { ButtonSquare } from '../Button';
+import { Button } from '../Button';
 import { IHeaderProps } from './interfaces';
 
 const Header = ({ onLoginClick }: IHeaderProps) => {
@@ -11,9 +11,9 @@ const Header = ({ onLoginClick }: IHeaderProps) => {
 		<HeaderContainer>
 			<LogoHeader />
 			<ButtonContainer>
-				<ButtonSquare onClick={onLoginClick} data-test="header">
+				<Button onClick={onLoginClick} data-test="header" variant="primary">
 					{t('login')}
-				</ButtonSquare>
+				</Button>
 			</ButtonContainer>
 		</HeaderContainer>
 	);

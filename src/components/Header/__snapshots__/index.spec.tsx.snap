@@ -7,6 +7,7 @@ exports[`#Header renders properly 1`] = `
     <Component
       data-test="header"
       onClick={[MockFunction]}
+      variant="primary"
     >
       login
     </Component>

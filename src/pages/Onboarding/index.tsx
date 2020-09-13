@@ -1,11 +1,12 @@
 import React from 'react';
 import Header from '../../components/Header';
+import Welcome from '../../components/Welcome';
 
 const Onboarding = () => {
 	return (
 		<>
 			<Header onLoginClick={() => undefined} />
-			<h1>Welcome</h1>
+			<Welcome />
 			<h1>Footer</h1>
 		</>
 	);

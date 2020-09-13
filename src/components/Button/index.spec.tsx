@@ -1,16 +1,17 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { ButtonSquare } from '.';
-import { IButtonSquareProps } from './interface';
+import { Button } from '.';
+import { IButtonProps } from './interface';
 import { findByDataTest } from '../../utils/tests/findByDataTest';
 
-const defaultProps: IButtonSquareProps = {
+const defaultProps: IButtonProps = {
 	children: 'Button',
 	onClick: jest.fn(),
+	variant: 'primary',
 };
 
-const setup = (props: IButtonSquareProps) =>
-	shallow(<ButtonSquare {...props}>{props.children}</ButtonSquare>);
+const setup = (props: IButtonProps) =>
+	shallow(<Button {...props}>{props.children}</Button>);
 
 describe('#ButtonSquare', () => {
 	it('renders properly', () => {
