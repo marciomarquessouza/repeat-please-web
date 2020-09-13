@@ -8,7 +8,7 @@ import * as serviceWorker from './serviceWorker';
 
 WebFont.load({
 	google: {
-		families: ['Oswald:200', 'sans-serif'],
+		families: ['Oswald:200', 'Roboto:400', 'Fredoka One:400'],
 	},
 });
 

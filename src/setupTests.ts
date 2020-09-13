@@ -6,6 +6,6 @@ Enzyme.configure({ adapter: new ReactSixteenAdapter() });
 
 jest.mock('react-i18next', () => ({
 	useTranslation: () => ({
-		t: (key: any) => key,
+		t: (key: string) => key,
 	}),
 }));
