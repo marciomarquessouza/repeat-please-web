@@ -2,7 +2,7 @@
  <img width=640px src="https://i.imgur.com/41CMNb5.png" alt="Project logo"></a>
 </p>
 
-<h3 align="center">Virtual Pronunciation Coach developed in React Native</h3>
+<h3 align="center">Virtual Pronunciation Coach developed in React</h3>
 
 <div align="center">
 

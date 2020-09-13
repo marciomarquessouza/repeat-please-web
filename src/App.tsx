@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Welcome from './pages/Welcome';
+import Onboarding from './pages/Onboarding';
 
 const App = (): JSX.Element => (
-  <Router>
-    <Switch>
-      <Route path="/" component={Welcome} />
-    </Switch>
-  </Router>
+	<Router>
+		<Switch>
+			<Route path="/" component={Onboarding} />
+		</Switch>
+	</Router>
 );
 
 export default App;
