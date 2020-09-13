@@ -35,6 +35,7 @@ module.exports = {
 		'@typescript-eslint/explicit-module-boundary-types': 'off',
 		'no-console': 'error',
 		'react/jsx-props-no-spreading': 'off',
+		'global-require': 'off',
 		'prettier/prettier': [
 			'error',
 			{
