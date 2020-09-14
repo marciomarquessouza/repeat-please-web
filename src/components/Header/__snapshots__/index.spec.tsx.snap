@@ -2,7 +2,11 @@
 
 exports[`#Header renders properly 1`] = `
 <styled.div>
-  <LogoHeader />
+  <Link
+    to="/"
+  >
+    <LogoHeader />
+  </Link>
   <styled.div>
     <Component
       data-test="header"

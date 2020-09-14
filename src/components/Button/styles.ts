@@ -7,7 +7,7 @@ export const ButtonStyle = styled.button<IButtonProps>`
 	text-decoration: none;
 	text-align: center;
 	transition: all 0.2s;
-	cursor: default;
+	cursor: pointer;
 
 	${(props) =>
 		props.variant === 'primary' &&

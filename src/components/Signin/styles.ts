@@ -45,3 +45,7 @@ export const SubmitContainer = styled.div`
 	flex-direction: row;
 	justify-content: center;
 `;
+
+export const SignUpLinkContainer = styled.div`
+	margin: 0.6em;
+`;

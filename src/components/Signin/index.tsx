@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useHistory } from 'react-router-dom';
 import {
 	Container,
 	PanelSections,
@@ -7,14 +8,18 @@ import {
 	InputContainer,
 	SubmitContainer,
 	SignInForm,
+	SignUpLinkContainer,
 } from './styles';
 import LogoWelcome from '../../assets/svg/LogoWelcome';
 import { Input } from '../Input';
 import { Button } from '../Button';
+import { LinkButton } from '../LinkButton';
+import { SIGN_UP } from '../../routes';
 
 const SignIn = () => {
 	const { t } = useTranslation();
 	const [state, setState] = useState({ email: '', password: '' });
+	const { push } = useHistory();
 
 	const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const { value, name } = event.target;
@@ -58,6 +63,11 @@ const SignIn = () => {
 							{t('login')}
 						</Button>
 					</SubmitContainer>
+					<SignUpLinkContainer>
+						<LinkButton onClick={() => push(SIGN_UP)}>
+							{t('signUpLink')}
+						</LinkButton>
+					</SignUpLinkContainer>
 				</SignInForm>
 			</PanelSections>
 		</Container>
