@@ -1,6 +1,9 @@
 {
 	"translation": {
 		"login": "Login",
-		"startNow": "Iniciar Agora!"
+		"startNow": "Iniciar Agora!",
+		"email": "E-mail",
+		"password": "Password",
+		"welcome": "Bem vindo ao Repeat Please"
 	}
 }

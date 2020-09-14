@@ -1,17 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import LogoWelcome from '../../assets/svg/LogoWelcome';
-import {
-	WelcomeContainer,
-	LogoWelcomeContainer,
-	StartButtonContainer,
-} from './styles';
+import { LogoWelcomeContainer, StartButtonContainer } from './styles';
 import { Button } from '../Button';
 
 const Welcome = () => {
 	const { t } = useTranslation();
 	return (
-		<WelcomeContainer>
+		<>
 			<LogoWelcomeContainer>
 				<LogoWelcome />
 			</LogoWelcomeContainer>
@@ -23,7 +19,7 @@ const Welcome = () => {
 					{t('startNow')}
 				</Button>
 			</StartButtonContainer>
-		</WelcomeContainer>
+		</>
 	);
 };
 

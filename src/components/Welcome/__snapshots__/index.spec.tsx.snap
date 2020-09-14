@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#Welcome renders properly 1`] = `
+<Fragment>
+  <styled.div>
+    <LogoWelcome />
+  </styled.div>
+  <styled.div>
+    <Component
+      data-test="start-now"
+      onClick={[Function]}
+      variant="secondary"
+    >
+      startNow
+    </Component>
+  </styled.div>
+</Fragment>
+`;

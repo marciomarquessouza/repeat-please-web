@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#ButtonSquare renders properly 1`] = `
-<styled.a
+<styled.button
   data-test="button-square"
   onClick={[MockFunction]}
   variant="primary"
 >
   Button
-</styled.a>
+</styled.button>
 `;
