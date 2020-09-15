@@ -15,10 +15,12 @@ import { Input } from '../Input';
 import { Button } from '../Button';
 import { LinkButton } from '../LinkButton';
 import { SIGN_UP } from '../../routes';
+import { signin } from '../../services/signin';
 
 const SignIn = () => {
 	const { t } = useTranslation();
 	const [state, setState] = useState({ email: '', password: '' });
+	const [error, setError] = useState('');
 	const { push } = useHistory();
 
 	const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,8 +28,14 @@ const SignIn = () => {
 		setState({ ...state, [name]: value });
 	};
 
-	const onSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
+	const onSubmit = async (event: React.ChangeEvent<HTMLFormElement>) => {
+		const { email, password } = state;
 		event.preventDefault();
+		try {
+			await signin({ email, password });
+		} catch (err) {
+			setError(err.message);
+		}
 	};
 
 	return (
@@ -37,6 +45,7 @@ const SignIn = () => {
 			</PanelSections>
 			<PanelSections flex={0.8}>
 				<SignInForm onSubmit={onSubmit}>
+					{error && <span>{error}</span>}
 					<SignInTitle>{t('welcome')}</SignInTitle>
 					<InputContainer>
 						<Input
