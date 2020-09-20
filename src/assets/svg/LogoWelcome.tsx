@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LogoWelcome = () => {
+export const LogoWelcome = () => {
 	return (
 		<svg width={383} height={199} viewBox="0 0 383 199" fill="none">
 			<path
@@ -213,5 +213,3 @@ const LogoWelcome = () => {
 		</svg>
 	);
 };
-
-export default LogoWelcome;

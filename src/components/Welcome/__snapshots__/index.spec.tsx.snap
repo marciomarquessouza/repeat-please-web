@@ -3,7 +3,7 @@
 exports[`#Welcome renders properly 1`] = `
 <Fragment>
   <styled.div>
-    <LogoWelcome />
+    <Component />
   </styled.div>
   <styled.div>
     <Component

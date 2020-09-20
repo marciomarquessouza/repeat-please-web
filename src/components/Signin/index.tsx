@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import {
@@ -10,18 +10,19 @@ import {
 	SignInForm,
 	SignUpLinkContainer,
 } from './styles';
-import LogoWelcome from '../../assets/svg/LogoWelcome';
+import { LogoWelcome } from '../../assets/svg';
 import { Input } from '../Input';
 import { Button } from '../Button';
 import { LinkButton } from '../LinkButton';
 import { SIGN_UP } from '../../routes';
 import { signin } from '../../services/signin';
+import { AlertContext } from '../../context/alertContext';
 
 const SignIn = () => {
 	const { t } = useTranslation();
 	const [state, setState] = useState({ email: '', password: '' });
-	const [error, setError] = useState('');
 	const { push } = useHistory();
+	const { showAlert } = useContext(AlertContext);
 
 	const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const { value, name } = event.target;
@@ -34,7 +35,7 @@ const SignIn = () => {
 		try {
 			await signin({ email, password });
 		} catch (err) {
-			setError(err.message);
+			showAlert(err.message, 'error');
 		}
 	};
 
@@ -45,7 +46,6 @@ const SignIn = () => {
 			</PanelSections>
 			<PanelSections flex={0.8}>
 				<SignInForm onSubmit={onSubmit}>
-					{error && <span>{error}</span>}
 					<SignInTitle>{t('welcome')}</SignInTitle>
 					<InputContainer>
 						<Input

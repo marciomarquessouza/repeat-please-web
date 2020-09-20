@@ -5,6 +5,9 @@
 		"email": "Email",
 		"password": "Password",
 		"welcome": "Welcome to Repeat Please",
-		"signUpLink": "Don’t have an account? Sign Up for free now!"
+		"signUpLink": "Don’t have an account? Sign Up for free now!",
+		"error": "error",
+		"warning": "warning",
+		"success": "success"
 	}
 }

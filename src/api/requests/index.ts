@@ -7,7 +7,7 @@ interface IRequesProps {
 	body?: unknown;
 }
 
-async function requestResponse<T>(config: AxiosRequestConfig) {
+async function requestResponse<T>(config: AxiosRequestConfig): Promise<T> {
 	try {
 		const response = await axios.request<T>(config);
 		if (![200, 201].includes(response.status)) {
@@ -15,12 +15,13 @@ async function requestResponse<T>(config: AxiosRequestConfig) {
 				`response with status ${response.status} - ${JSON.stringify(response)}`,
 			);
 		}
+		return response.data;
 	} catch (error) {
 		throw new Error(`Error to request ${config.url}: ${error.message}`);
 	}
 }
 
-async function get<T>({ url, headers, params }: IRequesProps) {
+async function get<T>({ url, headers, params }: IRequesProps): Promise<T> {
 	const config: AxiosRequestConfig = {
 		method: 'GET',
 		url,
@@ -28,10 +29,10 @@ async function get<T>({ url, headers, params }: IRequesProps) {
 		params,
 	};
 
-	requestResponse<T>(config);
+	return requestResponse<T>(config);
 }
 
-async function post<T>({ url, headers, body }: IRequesProps) {
+async function post<T>({ url, headers, body }: IRequesProps): Promise<T> {
 	const config: AxiosRequestConfig = {
 		method: 'POST',
 		url,
@@ -39,10 +40,10 @@ async function post<T>({ url, headers, body }: IRequesProps) {
 		data: body,
 	};
 
-	requestResponse<T>(config);
+	return requestResponse<T>(config);
 }
 
-async function put<T>({ url, headers, body }: IRequesProps) {
+async function put<T>({ url, headers, body }: IRequesProps): Promise<T> {
 	const config: AxiosRequestConfig = {
 		method: 'PUT',
 		url,
@@ -50,10 +51,10 @@ async function put<T>({ url, headers, body }: IRequesProps) {
 		data: body,
 	};
 
-	requestResponse<T>(config);
+	return requestResponse<T>(config);
 }
 
-async function patch<T>({ url, headers, body }: IRequesProps) {
+async function patch<T>({ url, headers, body }: IRequesProps): Promise<T> {
 	const config: AxiosRequestConfig = {
 		method: 'PATCH',
 		url,
@@ -61,10 +62,14 @@ async function patch<T>({ url, headers, body }: IRequesProps) {
 		data: body,
 	};
 
-	requestResponse<T>(config);
+	return requestResponse<T>(config);
 }
 
-async function remove<T>({ url, headers, params }: IRequesProps) {
+async function remove<T>({
+	url,
+	headers,
+	params,
+}: IRequesProps): Promise<void> {
 	const config: AxiosRequestConfig = {
 		method: 'DELETE',
 		url,

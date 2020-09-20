@@ -5,6 +5,9 @@
 		"email": "E-mail",
 		"password": "Password",
 		"welcome": "Bem vindo ao Repeat Please",
-		"signUpLink": "Ainda não possui um conta? Registre-se agora!"
+		"signUpLink": "Ainda não possui um conta? Registre-se agora!",
+		"error": "erro",
+		"warning": "warning",
+		"success": "success"
 	}
 }

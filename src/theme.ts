@@ -2,8 +2,6 @@ export const defaultTheme = {
 	colors: {
 		primary: '#FF5733',
 		secondary: '#571845',
-		success: '#25ae88',
-		warning: '#FD8469',
 		white: '#FFF',
 		black: '#000',
 		glass: 'rgba(101, 101, 101, 0.3)',
@@ -16,6 +14,9 @@ export const defaultTheme = {
 		lightText: '#656565',
 		vowel: '#EBD935',
 		consonant: '#FFC300',
+		warning: '#FD8469',
+		error: '#FF0000',
+		success: '#25ae88',
 	},
 	fonts: {
 		primary: 'Oswald',

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import LogoHeader from '../../assets/svg/LogoHeader';
+import { LogoHeader } from '../../assets/svg';
 import { HeaderContainer, ButtonContainer } from './styles';
 import { Button } from '../Button';
 import { IHeaderProps } from './interfaces';
