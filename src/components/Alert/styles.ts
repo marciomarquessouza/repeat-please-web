@@ -57,10 +57,11 @@ export const MessageContainer = styled.div`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
 `;
 
 export const AlertTitle = styled.span<IAlertTitleProps>`
+	flex: 1;
 	font-family: ${(props) => props.theme.fonts.title};
 	font-size: 1.5em;
 	margin: 0.3em;

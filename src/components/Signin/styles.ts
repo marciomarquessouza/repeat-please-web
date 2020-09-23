@@ -49,3 +49,12 @@ export const SubmitContainer = styled.div`
 export const SignUpLinkContainer = styled.div`
 	margin: 0.6em;
 `;
+
+export const WelcomeLogoContainer = styled.div`
+	display: flex;
+	flex: 1;
+
+	@media (max-width: 860px) {
+		display: none;
+	}
+`;

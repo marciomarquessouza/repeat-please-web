@@ -9,6 +9,7 @@ import {
 	SubmitContainer,
 	SignInForm,
 	SignUpLinkContainer,
+	WelcomeLogoContainer,
 } from './styles';
 import { LogoWelcome } from '../../assets/svg';
 import { Input } from '../Input';
@@ -41,9 +42,11 @@ const SignIn = () => {
 
 	return (
 		<Container>
-			<PanelSections flex={1.2}>
-				<LogoWelcome />
-			</PanelSections>
+			<WelcomeLogoContainer>
+				<PanelSections flex={1.2}>
+					<LogoWelcome />
+				</PanelSections>
+			</WelcomeLogoContainer>
 			<PanelSections flex={0.8}>
 				<SignInForm onSubmit={onSubmit}>
 					<SignInTitle>{t('welcome')}</SignInTitle>

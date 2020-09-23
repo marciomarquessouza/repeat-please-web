@@ -7,6 +7,9 @@ export const ButtonStyle = styled.button<IButtonProps>`
 	text-decoration: none;
 	text-align: center;
 	transition: all 0.2s;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
 	cursor: pointer;
 
 	${(props) =>
