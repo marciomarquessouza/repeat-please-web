@@ -1,3 +1,5 @@
+const { off } = require('process');
+
 module.exports = {
 	extends: [
 		'airbnb-typescript',
@@ -36,6 +38,7 @@ module.exports = {
 		'no-console': 'error',
 		'react/jsx-props-no-spreading': 'off',
 		'global-require': 'off',
+		'import/order': 'off',
 		'prettier/prettier': [
 			'error',
 			{

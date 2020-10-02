@@ -10,6 +10,7 @@ interface IRequesProps {
 async function requestResponse<T>(config: AxiosRequestConfig): Promise<T> {
 	try {
 		const response = await axios.request<T>(config);
+
 		if (![200, 201].includes(response.status)) {
 			throw new Error(
 				`response with status ${response.status} - ${JSON.stringify(response)}`,

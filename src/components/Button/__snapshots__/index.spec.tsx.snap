@@ -3,6 +3,7 @@
 exports[`#ButtonSquare renders properly 1`] = `
 <styled.button
   data-test="button-square"
+  disabled={false}
   onClick={[MockFunction]}
   variant="primary"
 >

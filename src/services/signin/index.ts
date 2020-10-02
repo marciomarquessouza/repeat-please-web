@@ -1,14 +1,22 @@
 import request from '../../api/requests';
+import * as config from '../../config';
 
 interface ISignInProps {
 	email: string;
 	password: string;
 }
 
-export const signin = async ({ email, password }: ISignInProps) => {
+export interface ISignInResponse {
+	token: string;
+}
+
+export const signin = async ({
+	email,
+	password,
+}: ISignInProps): Promise<ISignInResponse> => {
 	try {
-		await request.post({
-			url: 'http://localhost:5000/auth/signin',
+		return await request.post<ISignInResponse>({
+			url: `${config.API_URL}/auth/signin`,
 			headers: {
 				'Content-Type': 'application/json',
 			},

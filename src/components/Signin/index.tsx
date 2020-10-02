@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import {
@@ -16,14 +16,26 @@ import { Input } from '../Input';
 import { Button } from '../Button';
 import { LinkButton } from '../LinkButton';
 import { SIGN_UP } from '../../routes';
-import { signin } from '../../services/signin';
 import { AlertContext } from '../../context/alertContext';
+import { useDispatch, useSelector } from 'react-redux';
+import * as actions from '../../store/actions/actionsCreator/signInActionsCreator';
+import { AppState } from '../../store/reducers/rootReducer';
 
 const SignIn = () => {
 	const { t } = useTranslation();
 	const [state, setState] = useState({ email: '', password: '' });
 	const { push } = useHistory();
 	const { showAlert } = useContext(AlertContext);
+	const dispatch = useDispatch();
+	const { error, isLoading } = useSelector(
+		(appState: AppState) => appState.signIn,
+	);
+
+	useEffect(() => {
+		if (error) {
+			showAlert(error.message, 'error');
+		}
+	}, [error, showAlert]);
 
 	const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const { value, name } = event.target;
@@ -33,11 +45,7 @@ const SignIn = () => {
 	const onSubmit = async (event: React.ChangeEvent<HTMLFormElement>) => {
 		const { email, password } = state;
 		event.preventDefault();
-		try {
-			await signin({ email, password });
-		} catch (err) {
-			showAlert(err.message, 'error');
-		}
+		dispatch(actions.signInRequest(email, password));
 	};
 
 	return (
@@ -71,7 +79,7 @@ const SignIn = () => {
 						/>
 					</InputContainer>
 					<SubmitContainer>
-						<Button variant="rounded" type="submit">
+						<Button variant="rounded" type="submit" loading={isLoading}>
 							{t('login')}
 						</Button>
 					</SubmitContainer>

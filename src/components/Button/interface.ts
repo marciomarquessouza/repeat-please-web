@@ -1,6 +1,7 @@
 export interface IButtonProps {
-	children: string;
+	children: any;
 	onClick?: () => void;
 	variant: 'primary' | 'secondary' | 'rounded';
 	type?: 'button' | 'submit' | 'reset';
+	loading?: boolean;
 }
