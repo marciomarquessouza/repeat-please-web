@@ -1,4 +1,4 @@
-import { call, put, takeLatest, all, fork, delay } from 'redux-saga/effects';
+import { call, put, takeLatest, all, fork } from 'redux-saga/effects';
 import * as signInActions from '../actions/actionsCreator/signInActionsCreator';
 import * as signInActionsTypes from '../actions/actionsTypes/signInActionsTypes';
 import * as alertActions from '../actions/actionsCreator/alertActionsCreator';
@@ -17,8 +17,6 @@ function* onSignIn({
 	} catch (error) {
 		yield put(signInActions.signInError(error));
 		yield put(alertActions.alertShow(error.message, 'error'));
-		yield delay(5000);
-		yield put(alertActions.alertClose());
 	}
 }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
 	AlertBox,
@@ -17,6 +17,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { firstUppercase } from '../../utils/text/firstUpperCase';
 import { AppState } from '../../store/reducers/rootReducer';
 import { alertClose } from '../../store/actions/actionsCreator/alertActionsCreator';
+import { ALERT_OPENED_TIME } from '../../constants/alert';
 
 export const Alert = () => {
 	const { t } = useTranslation();
@@ -25,9 +26,18 @@ export const Alert = () => {
 	);
 	const dispatch = useDispatch();
 
-	const onClose = () => {
+	const onCloseAlert = () => {
 		dispatch(alertClose());
 	};
+
+	useEffect(() => {
+		if (visibility === 'visible') {
+			const timeoutId = setTimeout(() => {
+				onCloseAlert();
+				clearTimeout(timeoutId);
+			}, ALERT_OPENED_TIME);
+		}
+	});
 
 	const AlertIcon = () => {
 		switch (alertType) {
@@ -50,7 +60,7 @@ export const Alert = () => {
 					{firstUppercase(t(alertType))}:
 				</AlertTitle>
 				<AlertMessage>{message}</AlertMessage>
-				<CloseIconStyle onClick={onClose}>
+				<CloseIconStyle onClick={onCloseAlert}>
 					<CloseIcon />
 				</CloseIconStyle>
 			</MessageContainer>
