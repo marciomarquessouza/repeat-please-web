@@ -6,6 +6,7 @@ import {
 	AlertMessage,
 	MessageContainer,
 	CloseIconStyle,
+	AlertMessageContainer,
 } from './styles';
 import {
 	AlertIconError,
@@ -59,7 +60,9 @@ export const Alert = () => {
 				<AlertTitle type={alertType}>
 					{firstUppercase(t(alertType))}:
 				</AlertTitle>
-				<AlertMessage>{message}</AlertMessage>
+				<AlertMessageContainer>
+					<AlertMessage>{message}</AlertMessage>
+				</AlertMessageContainer>
 				<CloseIconStyle onClick={onCloseAlert}>
 					<CloseIcon />
 				</CloseIconStyle>

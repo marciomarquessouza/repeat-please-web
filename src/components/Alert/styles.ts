@@ -28,14 +28,14 @@ const fadeout = keyframes`
 export const AlertBox = styled.div<IAlertBoxProps>`
 	visibility: ${(props) => (props.visibility ? 'visible' : 'hidden')};
 	position: fixed;
-	min-width: 500px;
-	max-height: 100px;
+	min-width: 400px;
+	max-width: 80%;
 	margin-left: -250px;
 	background-color: #f1f0db;
 	border-radius: 12px;
 	padding: 12px;
 	z-index: 1;
-	left: 50%;
+	right: 20px;
 	bottom: ${(props) => (props.visibility === 'visible' ? '30px' : '-100px')};
 	border: 3px solid #000;
 
@@ -61,11 +61,18 @@ export const MessageContainer = styled.div`
 `;
 
 export const AlertTitle = styled.span<IAlertTitleProps>`
-	flex: 1;
 	font-family: ${(props) => props.theme.fonts.title};
 	font-size: 1.5em;
 	margin: 0.3em;
 	color: ${(props) => alertTitleColor(props.type)};
+`;
+
+export const AlertMessageContainer = styled.div`
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: start;
+	flex: 1;
 `;
 
 export const AlertMessage = styled.span`
