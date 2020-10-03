@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import {
@@ -16,7 +16,6 @@ import { Input } from '../Input';
 import { Button } from '../Button';
 import { LinkButton } from '../LinkButton';
 import { SIGN_UP } from '../../routes';
-import { AlertContext } from '../../context/alertContext';
 import { useDispatch, useSelector } from 'react-redux';
 import * as actions from '../../store/actions/actionsCreator/signInActionsCreator';
 import { AppState } from '../../store/reducers/rootReducer';
@@ -25,17 +24,8 @@ const SignIn = () => {
 	const { t } = useTranslation();
 	const [state, setState] = useState({ email: '', password: '' });
 	const { push } = useHistory();
-	const { showAlert } = useContext(AlertContext);
 	const dispatch = useDispatch();
-	const { error, isLoading } = useSelector(
-		(appState: AppState) => appState.signIn,
-	);
-
-	useEffect(() => {
-		if (error) {
-			showAlert(error.message, 'error');
-		}
-	}, [error, showAlert]);
+	const { isLoading } = useSelector((appState: AppState) => appState.signIn);
 
 	const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const { value, name } = event.target;

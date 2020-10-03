@@ -7,20 +7,30 @@ import {
 	MessageContainer,
 	CloseIconStyle,
 } from './styles';
-import { IAlertProps } from './interface';
 import {
 	AlertIconError,
 	AlertIconWarning,
 	AlertIconSuccess,
 	CloseIcon,
 } from '../../assets/svg';
+import { useSelector, useDispatch } from 'react-redux';
 import { firstUppercase } from '../../utils/text/firstUpperCase';
+import { AppState } from '../../store/reducers/rootReducer';
+import { alertClose } from '../../store/actions/actionsCreator/alertActionsCreator';
 
-export const Alert = ({ visibility, message, onClose, type }: IAlertProps) => {
+export const Alert = () => {
 	const { t } = useTranslation();
+	const { message, visibility, alertType } = useSelector(
+		(state: AppState) => state.alert,
+	);
+	const dispatch = useDispatch();
+
+	const onClose = () => {
+		dispatch(alertClose());
+	};
 
 	const AlertIcon = () => {
-		switch (type) {
+		switch (alertType) {
 			case 'error':
 				return <AlertIconError />;
 			case 'warning':
@@ -36,7 +46,9 @@ export const Alert = ({ visibility, message, onClose, type }: IAlertProps) => {
 		<AlertBox visibility={visibility}>
 			<MessageContainer>
 				{AlertIcon()}
-				<AlertTitle type={type}>{firstUppercase(t(type))}:</AlertTitle>
+				<AlertTitle type={alertType}>
+					{firstUppercase(t(alertType))}:
+				</AlertTitle>
 				<AlertMessage>{message}</AlertMessage>
 				<CloseIconStyle onClick={onClose}>
 					<CloseIcon />

@@ -8,6 +8,8 @@
 		"signUpLink": "Don’t have an account? Sign Up for free now!",
 		"error": "error",
 		"warning": "warning",
-		"success": "success"
+		"success": "success",
+
+		"defaultError": "something wrong happened"
 	}
 }

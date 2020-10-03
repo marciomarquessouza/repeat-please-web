@@ -8,6 +8,8 @@
 		"signUpLink": "Ainda não possui um conta? Registre-se agora!",
 		"error": "erro",
 		"warning": "warning",
-		"success": "success"
+		"success": "success",
+
+		"defaultError": "Desculpe-nos, mas um erro inesperado acabou de ocorrer."
 	}
 }
