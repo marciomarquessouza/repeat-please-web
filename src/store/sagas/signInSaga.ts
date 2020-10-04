@@ -2,20 +2,19 @@ import { call, put, takeLatest, all, fork } from 'redux-saga/effects';
 import * as signInActions from '../actions/actionsCreator/signInActionsCreator';
 import * as signInActionsTypes from '../actions/actionsTypes/signInActionsTypes';
 import * as alertActions from '../actions/actionsCreator/alertActionsCreator';
-import * as services from '../../services/signin';
+import { signIn } from '../../services/signInServices';
+import history from '../../navigation/history';
 
 function* onSignIn({
 	email,
 	password,
 }: signInActionsTypes.ISignInRequesAction) {
 	try {
-		const { token }: services.ISignInResponse = yield call(services.signin, {
-			email,
-			password,
-		});
-		yield put(signInActions.signInSuccess(token));
+		yield call(signIn, { email, password });
+		yield put(signInActions.signInSuccess());
+		history.push('/');
 	} catch (error) {
-		yield put(signInActions.signInError(error));
+		yield put(signInActions.signInError());
 		yield put(alertActions.alertShow(error.message, 'error'));
 	}
 }

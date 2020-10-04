@@ -2,12 +2,10 @@ import * as actions from '../actions/actionsTypes/signInActionsTypes';
 
 interface ISignInState {
 	isLoading: boolean;
-	token: string;
 }
 
 const initialState: ISignInState = {
 	isLoading: false,
-	token: '',
 };
 
 export const signInReducer = (
@@ -24,7 +22,6 @@ export const signInReducer = (
 			return {
 				...state,
 				isLoading: false,
-				token: action.token,
 			};
 		case actions.SIGN_IN_ERROR:
 			return {

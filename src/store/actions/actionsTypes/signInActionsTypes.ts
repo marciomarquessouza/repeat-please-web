@@ -10,14 +10,12 @@ export const SIGN_IN_SUCCESS = 'signin/signin_success';
 
 export interface ISignInSuccessAction {
 	readonly type: typeof SIGN_IN_SUCCESS;
-	token: string;
 }
 
 export const SIGN_IN_ERROR = 'signin/signin_error';
 
 export interface ISignInErrorAction {
 	readonly type: typeof SIGN_IN_ERROR;
-	error: Error;
 }
 
 export type SignInAction =

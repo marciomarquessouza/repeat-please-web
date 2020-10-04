@@ -1,22 +1,24 @@
 import React from 'react';
-import { Route, Switch, useHistory } from 'react-router-dom';
+import { Route, Switch, useHistory, useRouteMatch } from 'react-router-dom';
 import Header from '../../components/Header';
 import Welcome from '../../components/Welcome';
 import SignIn from '../../components/Signin';
 import { Container } from './styles';
 import { SIGN_IN } from '../../routes';
 
-const Onboarding = () => {
+export const Onboarding = () => {
 	const { push } = useHistory();
+	const { path, url } = useRouteMatch();
+
 	return (
 		<>
-			<Header onLoginClick={() => push(SIGN_IN)} />
+			<Header onLoginClick={() => push(`${url}${SIGN_IN}`)} />
 			<Container>
 				<Switch>
-					<Route exact path="/">
+					<Route exact path={path}>
 						<Welcome />
 					</Route>
-					<Route path="/signin">
+					<Route path={`${path}/signin`}>
 						<SignIn />
 					</Route>
 				</Switch>
@@ -25,5 +27,3 @@ const Onboarding = () => {
 		</>
 	);
 };
-
-export default Onboarding;

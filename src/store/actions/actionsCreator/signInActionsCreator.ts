@@ -9,12 +9,10 @@ export const signInRequest = (
 	password,
 });
 
-export const signInSuccess = (token: string): actions.ISignInSuccessAction => ({
+export const signInSuccess = (): actions.ISignInSuccessAction => ({
 	type: actions.SIGN_IN_SUCCESS,
-	token,
 });
 
-export const signInError = (error: Error): actions.ISignInErrorAction => ({
+export const signInError = (): actions.ISignInErrorAction => ({
 	type: actions.SIGN_IN_ERROR,
-	error,
 });

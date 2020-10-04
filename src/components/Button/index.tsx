@@ -17,7 +17,7 @@ export const Button = ({
 		variant={variant}
 		data-test="button-square">
 		{loading ? (
-			<Loader type="Puff" color="#00BFFF" height={20} width={20} />
+			<Loader type="Puff" color="#fff" height={20} width={20} />
 		) : (
 			children
 		)}

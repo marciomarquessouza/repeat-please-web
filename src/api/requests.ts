@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios';
+import { API_URL } from '../config';
 
 interface IRequesProps {
 	url: string;
@@ -7,9 +8,13 @@ interface IRequesProps {
 	body?: unknown;
 }
 
+const api = axios.create({
+	baseURL: API_URL,
+});
+
 async function requestResponse<T>(config: AxiosRequestConfig): Promise<T> {
 	try {
-		const response = await axios.request<T>(config);
+		const response = await api.request<T>(config);
 
 		if (![200, 201].includes(response.status)) {
 			throw new Error(
