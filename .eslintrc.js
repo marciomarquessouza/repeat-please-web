@@ -39,6 +39,7 @@ module.exports = {
 		'react/jsx-props-no-spreading': 'off',
 		'global-require': 'off',
 		'import/order': 'off',
+		'no-param-reassign': ['error', { props: false }],
 		'prettier/prettier': [
 			'error',
 			{

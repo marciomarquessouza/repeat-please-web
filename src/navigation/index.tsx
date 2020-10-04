@@ -4,6 +4,7 @@ import { Onboarding, Dashboard } from '../pages';
 import { PrivateRoute } from './PrivateRoutes';
 import { isAuthenticated } from '../services/sessionsServices';
 import history from './history';
+import { DASHBOARD, ONBOARDING } from './routes';
 
 export const Routes = () => (
 	<Router history={history}>
@@ -13,15 +14,15 @@ export const Routes = () => (
 				path="/"
 				render={() =>
 					isAuthenticated() ? (
-						<Redirect to="/dashboard" />
+						<Redirect to={DASHBOARD} />
 					) : (
-						<Redirect to="/onboarding" />
+						<Redirect to={ONBOARDING} />
 					)
 				}
 			/>
-			<Route path="/onboarding" component={Onboarding} />
-			<PrivateRoute path="/dashboard" component={Dashboard} />
-			<Route path="*" component={() => <h1>Page not found</h1>} />
+			<Route path={ONBOARDING} component={Onboarding} />
+			<PrivateRoute path={DASHBOARD} component={Dashboard} />
+			<Route path="*" render={() => <Redirect to="/" />} />
 		</Switch>
 	</Router>
 );

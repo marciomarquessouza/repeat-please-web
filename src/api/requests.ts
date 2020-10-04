@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import { API_URL } from '../config';
+import { getToken } from '../services/sessionsServices';
 
 interface IRequesProps {
 	url: string;
@@ -11,6 +12,23 @@ interface IRequesProps {
 const api = axios.create({
 	baseURL: API_URL,
 });
+
+axios.interceptors.request.use(
+	(config) => {
+		if (config && config.url) {
+			const { origin } = new URL(config.url);
+			const allowedOrigins = [API_URL];
+			const token = getToken();
+			if (allowedOrigins.includes(origin) && token) {
+				config.headers.Authorization = `Bearer ${token}`;
+			}
+		}
+		return config;
+	},
+	(error) => {
+		return Promise.reject(error);
+	},
+);
 
 async function requestResponse<T>(config: AxiosRequestConfig): Promise<T> {
 	try {
