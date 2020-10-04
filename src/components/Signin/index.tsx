@@ -53,7 +53,7 @@ const SignIn = () => {
 							type="email"
 							placeholder={t('email')}
 							name="email"
-							autoComplete="off"
+							autoComplete="on"
 							value={state.email}
 							onChange={onChange}
 						/>
@@ -63,7 +63,7 @@ const SignIn = () => {
 							type="password"
 							placeholder={t('password')}
 							name="password"
-							autoComplete="off"
+							autoComplete="on"
 							value={state.password}
 							onChange={onChange}
 						/>
