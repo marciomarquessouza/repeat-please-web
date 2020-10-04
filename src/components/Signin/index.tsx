@@ -15,7 +15,7 @@ import { LogoWelcome } from '../../assets/svg';
 import { Input } from '../Input';
 import { Button } from '../Button';
 import { LinkButton } from '../LinkButton';
-import { SIGN_UP } from '../../routes';
+import { SIGN_UP } from '../../navigation/routes';
 import { useDispatch, useSelector } from 'react-redux';
 import * as actions from '../../store/actions/actionsCreator/signInActionsCreator';
 import { AppState } from '../../store/reducers/rootReducer';
