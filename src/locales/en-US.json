@@ -4,12 +4,20 @@
 		"startNow": "Start Now!",
 		"email": "Email",
 		"password": "Password",
+		"name": "Name",
 		"welcome": "Welcome to Repeat Please",
 		"signUpLink": "Don’t have an account? Sign Up for free now!",
 		"error": "error",
 		"warning": "warning",
 		"success": "success",
 
-		"defaultError": "something wrong happened"
+		"defaultError": "something wrong happened",
+
+		"createAccount": "Create account",
+		"signUp": "Sign Up (free)",
+		"signUpSuccess": "Account created with success!",
+		"signUpError": "Error to create a new account",
+
+		"fillInAllFields": "Please fill in all fields"
 	}
 }

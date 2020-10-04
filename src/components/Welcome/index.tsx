@@ -4,7 +4,7 @@ import { LogoWelcome } from '../../assets/svg';
 import { LogoWelcomeContainer, StartButtonContainer } from './styles';
 import { Button } from '../Button';
 
-const Welcome = () => {
+export const Welcome = () => {
 	const { t } = useTranslation();
 	return (
 		<>
@@ -22,5 +22,3 @@ const Welcome = () => {
 		</>
 	);
 };
-
-export default Welcome;

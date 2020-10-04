@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useHistory } from 'react-router-dom';
 import {
 	Container,
 	PanelSections,
@@ -8,23 +7,19 @@ import {
 	InputContainer,
 	SubmitContainer,
 	SignInForm,
-	SignUpLinkContainer,
 	WelcomeLogoContainer,
 } from './styles';
 import { LogoWelcome } from '../../assets/svg';
 import { Input } from '../Input';
 import { Button } from '../Button';
-import { LinkButton } from '../LinkButton';
-import { SIGN_UP } from '../../navigation/routes';
 import { useDispatch, useSelector } from 'react-redux';
-import * as actions from '../../store/actions/actionsCreator/signInActionsCreator';
+import * as actions from '../../store/actions/actionsCreator/signUpActionsCreator';
 import { alertShow } from '../../store/actions/actionsCreator/alertActionsCreator';
 import { AppState } from '../../store/reducers/rootReducer';
 
-export const SignIn = () => {
+export const SignUp = () => {
 	const { t } = useTranslation();
-	const [state, setState] = useState({ email: '', password: '' });
-	const { push } = useHistory();
+	const [state, setState] = useState({ email: '', password: '', name: '' });
 	const dispatch = useDispatch();
 	const { isLoading } = useSelector((appState: AppState) => appState.signIn);
 
@@ -35,13 +30,12 @@ export const SignIn = () => {
 
 	const onSubmit = async (event: React.ChangeEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		const { email, password } = state;
-		if (!email || !password) {
+		const { email, password, name } = state;
+		if (!email || !password || !name) {
 			dispatch(alertShow('fillInAllFields', 'error'));
 			return;
 		}
-
-		dispatch(actions.signInRequest(email, password));
+		dispatch(actions.signUpRequest(email, password, name));
 	};
 
 	return (
@@ -53,7 +47,17 @@ export const SignIn = () => {
 			</WelcomeLogoContainer>
 			<PanelSections flex={0.8}>
 				<SignInForm onSubmit={onSubmit}>
-					<SignInTitle>{t('welcome')}</SignInTitle>
+					<SignInTitle>{t('createAccount')}</SignInTitle>
+					<InputContainer>
+						<Input
+							type="text"
+							placeholder={t('name')}
+							name="name"
+							autoComplete="on"
+							value={state.name}
+							onChange={onChange}
+						/>
+					</InputContainer>
 					<InputContainer>
 						<Input
 							type="email"
@@ -76,14 +80,9 @@ export const SignIn = () => {
 					</InputContainer>
 					<SubmitContainer>
 						<Button variant="rounded" type="submit" loading={isLoading}>
-							{t('login')}
+							{t('signUp')}
 						</Button>
 					</SubmitContainer>
-					<SignUpLinkContainer>
-						<LinkButton onClick={() => push(SIGN_UP)}>
-							{t('signUpLink')}
-						</LinkButton>
-					</SignUpLinkContainer>
 				</SignInForm>
 			</PanelSections>
 		</Container>

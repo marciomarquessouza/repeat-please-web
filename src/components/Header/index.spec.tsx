@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Header from '.';
+import { Header } from '.';
 import { IHeaderProps } from './interfaces';
 import { findByDataTest } from '../../utils/tests/findByDataTest';
 

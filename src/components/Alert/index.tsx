@@ -61,7 +61,7 @@ export const Alert = () => {
 					{firstUppercase(t(alertType))}:
 				</AlertTitle>
 				<AlertMessageContainer>
-					<AlertMessage>{message}</AlertMessage>
+					<AlertMessage>{t(message)}</AlertMessage>
 				</AlertMessageContainer>
 				<CloseIconStyle onClick={onCloseAlert}>
 					<CloseIcon />

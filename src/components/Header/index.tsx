@@ -6,7 +6,7 @@ import { HeaderContainer, ButtonContainer } from './styles';
 import { Button } from '../Button';
 import { IHeaderProps } from './interfaces';
 
-const Header = ({ onLoginClick }: IHeaderProps) => {
+export const Header = ({ onLoginClick }: IHeaderProps) => {
 	const { t } = useTranslation();
 
 	return (
@@ -22,5 +22,3 @@ const Header = ({ onLoginClick }: IHeaderProps) => {
 		</HeaderContainer>
 	);
 };
-
-export default Header;

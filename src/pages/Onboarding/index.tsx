@@ -1,10 +1,8 @@
 import React from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
-import Header from '../../components/Header';
-import Welcome from '../../components/Welcome';
-import SignIn from '../../components/Signin';
+import { Header, SignIn, SignUp, Welcome } from '../../components';
 import { Container } from './styles';
-import { SIGN_IN, ONBOARDING } from '../../navigation/routes';
+import { SIGN_IN, SIGN_UP, ONBOARDING } from '../../navigation/routes';
 
 export const Onboarding = () => {
 	const { push } = useHistory();
@@ -19,6 +17,9 @@ export const Onboarding = () => {
 					</Route>
 					<Route path={SIGN_IN}>
 						<SignIn />
+					</Route>
+					<Route path={SIGN_UP}>
+						<SignUp />
 					</Route>
 				</Switch>
 			</Container>
