@@ -10,9 +10,14 @@ function* onSignIn({
 	password,
 }: signInActionsTypes.ISignInRequesAction) {
 	try {
-		yield call(signIn, { email, password });
+		const { accessToken } = yield call(signIn, { email, password });
+
+		if (accessToken) {
+			history.push('/');
+		} else {
+			throw new Error('Error to access the system');
+		}
 		yield put(signInActions.signInSuccess());
-		history.push('/');
 	} catch (error) {
 		yield put(signInActions.signInError());
 		yield put(alertActions.alertShow(error.message, 'error'));

@@ -7,26 +7,26 @@ interface ISignInProps {
 }
 
 export interface ISignInResponse {
-	token: string;
+	accessToken: string;
 }
 
 export const signIn = async ({
 	email,
 	password,
-}: ISignInProps): Promise<void> => {
+}: ISignInProps): Promise<ISignInResponse> => {
 	try {
-		request
-			.post<ISignInResponse>({
-				url: '/auth/signin',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: {
-					email,
-					password,
-				},
-			})
-			.then(({ token }) => setToken(token));
+		const { accessToken } = await request.post<ISignInResponse>({
+			url: '/auth/signin',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: {
+				email,
+				password,
+			},
+		});
+		setToken(accessToken);
+		return { accessToken };
 	} catch (error) {
 		throw new Error(error.message);
 	}
