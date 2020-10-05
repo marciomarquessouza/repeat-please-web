@@ -12,3 +12,13 @@ export const ButtonContainer = styled.div`
 	flex-direction: column;
 	justify-content: center;
 `;
+
+export const LogoContainer = styled.div`
+	display: inline-block;
+`;
+
+export const LogoTitleContainer = styled.span`
+	@media (max-width: 860px) {
+		display: none;
+	}
+`;

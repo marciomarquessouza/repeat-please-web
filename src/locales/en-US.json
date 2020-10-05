@@ -18,6 +18,15 @@
 		"signUpSuccess": "Account created with success!",
 		"signUpError": "Error to create a new account",
 
-		"fillInAllFields": "Please fill in all fields"
+		"fillInAllFields": "Please fill in all fields",
+
+		"footerTitleSadTitle": "SAD WITH YOUR PRONUNCIATION?",
+		"footerTitleSadBody": "A pronunciation error can destroy with your day, with your expectation and mainly, with your self-confidence.",
+
+		"footerTitleWhatTitle": "IDENTIFY AND IMPROVE!",
+		"footerTitleWhatBody": "The Repeat Please was created to you identify your weakness and improve your pronunciation skills.",
+
+		"footerTitleHappyTitle": "LET'S START",
+		"footerTitleHappyBody": "Let's start to pratice and improve your pronunciation day by day."
 	}
 }

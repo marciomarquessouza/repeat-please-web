@@ -5,7 +5,12 @@ exports[`#Header renders properly 1`] = `
   <Link
     to="/"
   >
-    <Component />
+    <styled.div>
+      <Component />
+      <styled.span>
+        <Component />
+      </styled.span>
+    </styled.div>
   </Link>
   <styled.div>
     <Component

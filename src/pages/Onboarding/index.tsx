@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
-import { Header, SignIn, SignUp, Welcome } from '../../components';
+import { Header, SignIn, SignUp, Welcome, Footer } from '../../components';
 import { Container } from './styles';
 import { SIGN_IN, SIGN_UP, ONBOARDING } from '../../navigation/routes';
 
@@ -23,7 +23,7 @@ export const Onboarding = () => {
 					</Route>
 				</Switch>
 			</Container>
-			<h1>Footer</h1>
+			<Footer />
 		</>
 	);
 };

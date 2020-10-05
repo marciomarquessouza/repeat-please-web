@@ -6,3 +6,4 @@ export { LinkButton } from './LinkButton';
 export { SignIn } from './Signin';
 export { SignUp } from './SignUp';
 export { Welcome } from './Welcome';
+export { Footer } from './Footer';
